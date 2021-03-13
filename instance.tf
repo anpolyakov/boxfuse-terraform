@@ -92,6 +92,18 @@ resource "google_compute_instance" "tomcat" {
         }
     }
 
+    provisioner "file" {
+      source = "credentials.json"
+      destination = "/tmp/credentials.json"
+
+      connection {
+        type = "ssh"
+        user = "${var.gce_ssh_user}"
+        private_key = "${file(var.gce_ssh_private_key_file)}"
+        host = "${google_compute_instance.tomcat[0].network_interface.0.access_config.0.nat_ip}"
+      }
+    }
+
     metadata = {
       ssh-keys = "${var.gce_ssh_user}:${file(var.gce_ssh_pub_key_file)}"
     }
