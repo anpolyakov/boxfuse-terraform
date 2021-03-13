@@ -18,7 +18,7 @@ resource "google_storage_bucket" "app-storage" {
   name = "${var.bucket_name}"
 }
 
-resource "google_compute_instance" "default" {
+resource "google_compute_instance" "maven" {
     count = "${var.num_nodes}"
     name = "${var.maven_instance_name}${count.index + 1}"
     machine_type = "${var.machine_type}"
@@ -52,7 +52,7 @@ data "template_file" "build" {
   template = "${file("${path.module}/templates/build_java_app.tpl")}"
   }
 
-resource "google_compute_instance" "default" {
+resource "google_compute_instance" "tomcat" {
     count = "${var.num_nodes}"
     name = "${var.tomcat_instance_name}${count.index + 1}"
     machine_type = "${var.machine_type}"
