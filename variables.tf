@@ -8,14 +8,19 @@ variable "gce_ssh_pub_key_file" {
   default = "/Users/work/.ssh/devops.edc.pub"
 }
 
-variable "name" {
+variable "maven_instance_name" {
   description = "Name prefix for the nodes"
-  default = "devops-lesson14-instance"
+  default = "devops-lesson14-maven-instance"
+}
+
+variable "tomcat_instance_name" {
+  description = "Name prefix for the nodes"
+  default = "devops-lesson14-tomcat-instance"
 }
 
 variable "num_nodes" {
   description = "Number of nodes to create"
-  default = 2
+  default = 1
 }
 
 variable "project" {
