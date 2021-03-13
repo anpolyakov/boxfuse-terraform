@@ -8,6 +8,11 @@ variable "gce_ssh_pub_key_file" {
   default = "/Users/work/.ssh/devops.edc.pub"
 }
 
+variable "gce_ssh_private_key_file" {
+  type = string
+  default = "/Users/work/.ssh/devops.edc"
+}
+
 variable "maven_instance_name" {
   description = "Name prefix for the nodes"
   default = "devops-lesson14-maven-instance"

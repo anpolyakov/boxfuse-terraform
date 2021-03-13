@@ -16,6 +16,7 @@ provider "google" {
 
 resource "google_storage_bucket" "app-storage" {
   name = "${var.bucket_name}"
+  force_destroy = true
 }
 
 resource "google_compute_instance" "maven" {
@@ -44,6 +45,13 @@ resource "google_compute_instance" "maven" {
     provisioner "file" {
       source = "credentials.json"
       destination = "/tmp/credentials.json"
+
+      connection {
+        type = "ssh"
+        user = "${var.gce_ssh_user}"
+        private_key = "${file(var.gce_ssh_private_key_file)}"
+        host = "${google_compute_instance.maven[0].network_interface.0.access_config.0.nat_ip}"
+      }
     }
 
     metadata = {
