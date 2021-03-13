@@ -16,7 +16,7 @@ provider "google" {
 
 resource "google_compute_instance" "default" {
     count = "${var.num_nodes}"
-    name = "${var.name}-${count.index + 1}"
+    name = "${var.name}${count.index + 1}"
     machine_type = "${var.machine_type}"
     min_cpu_platform = "${var.min_cpu_platform}"
 
