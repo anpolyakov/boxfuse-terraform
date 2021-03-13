@@ -9,6 +9,7 @@ systemctl enable --now tomcat9
 echo "*****    Installation Completed    *****"
 
 echo "*****    Deploy Java App    *****"
+sleep 1m
 gcloud auth activate-service-account --key-file /tmp/credentials.json
 gsutil cp gs://lesson14-app-storage/hello-1.0.war /var/lib/tomcat9/webapps/hello-1.0.war
 rm /tmp/credentials.json
