@@ -42,18 +42,3 @@ resource "google_compute_instance" "default" {
     }
 
 }
-
-resource "google_compute_firewall" "default" {
-    name = "devops-firewall"
-    network = google_compute_network.default.name
-    
-    allow {
-      protocol = "tcp"
-      ports    = ["80", "8080", "443"]
-    }
-
-}
-
-resource "google_compute_network" "default" {
-    name = "devops-network"
-}
