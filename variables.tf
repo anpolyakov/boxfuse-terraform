@@ -10,7 +10,7 @@ variable "gce_ssh_pub_key_file" {
 
 variable "name" {
   description = "Name prefix for the nodes"
-  default = "devops-instance-lesson"
+  default = "devops-lesson14-instance"
 }
 
 variable "num_nodes" {
