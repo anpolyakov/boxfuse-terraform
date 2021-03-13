@@ -1,0 +1,6 @@
+.terraform/**
+credentials.json
+terraform.code-workspace
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
