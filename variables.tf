@@ -52,3 +52,8 @@ variable "disk_size" {
   description = "Specifying disk size"
   default = 10
 }
+
+variable "bucket_name" {
+  description = "Specifying bucket name"
+  default = "lesson14-app-storage"
+}

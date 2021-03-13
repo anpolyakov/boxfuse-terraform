@@ -14,6 +14,10 @@ provider "google" {
   credentials = file("credentials.json")
 }
 
+resource "google_storage_bucket" "app-storage" {
+  name = "${var.bucket_name}"
+}
+
 resource "google_compute_instance" "default" {
     count = "${var.num_nodes}"
     name = "${var.name}${count.index + 1}"
