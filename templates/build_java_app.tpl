@@ -14,7 +14,7 @@ git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello
 cd boxfuse-sample-java-war-hello
 mvn package
 
-echo "*****    Building Completed    *****"
+echo "*****    Build Completed    *****"
 
 echo "*****    Startup script completes! *****"    
 

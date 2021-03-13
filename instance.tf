@@ -50,7 +50,11 @@ resource "google_compute_instance" "maven" {
 
 data "template_file" "build" {
   template = "${file("${path.module}/templates/build_java_app.tpl")}"
+
+  vars = {
+    bucket_name = "lesson14-app-storage"
   }
+}
 
 resource "google_compute_instance" "tomcat" {
     count = "${var.num_nodes}"
