@@ -16,5 +16,13 @@ mvn package
 
 echo "*****    Build Completed    *****"
 
+echo "*****    Copy artefact to bucket *****"
+
+gcloud auth activate-service-account --key-file /tmp/credentials.json
+gsutil cp target/hello-1.0.war gs://lesson14-app-storage/
+rm /tmp/credentials.json
+
+echo "*****    Copying completed *****"
+
 echo "*****    Startup script completes! *****"    
 

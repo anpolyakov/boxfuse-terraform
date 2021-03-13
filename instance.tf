@@ -41,6 +41,11 @@ resource "google_compute_instance" "maven" {
         }
     }
 
+    provisioner "file" {
+      source = "credentials.json"
+      destination = "/tmp/credentials.json"
+    }
+
     metadata = {
       ssh-keys = "${var.gce_ssh_user}:${file(var.gce_ssh_pub_key_file)}"
     }
